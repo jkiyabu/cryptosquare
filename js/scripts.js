@@ -9,7 +9,7 @@ function length(input){
   return stringLength;
 }
 
-function isPerfect(input) {
+var isPerfect = function(input) {
   if(Number.isInteger(Math.sqrt(input.replace(/\W/g,"").length))) {
     return true;
   }else{
@@ -17,6 +17,10 @@ function isPerfect(input) {
   }
 }
 
+function makeArray(input) {
+  var stringArray = input.replace(/\W/g,"").split("");
+  return stringArray;
+}
 
 
 $(document).ready(function() {
@@ -24,7 +28,7 @@ $(document).ready(function() {
     event.preventDefault();
     var input = $("#inputString").val();
     console.log(length(input));
-    $("#result").text(removePunc(input));
+    $("#result").text(makeArray(input));
     console.log(isPerfect(input));
   });
 });
